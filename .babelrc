@@ -1,0 +1,18 @@
+{    
+    ignore: [
+        "node_modules",
+        "build"
+    ],
+    presets: [
+        "@babel/preset-env",
+        "@babel/preset-flow",
+    ],
+    plugins: [
+	["@babel/plugin-proposal-decorators", { legacy: true }],
+        "@babel/plugin-transform-arrow-functions",
+        ["@babel/plugin-proposal-class-properties", { loose: true }],
+        ["@babel/plugin-transform-runtime", { regenerator: true }]
+    ],
+    "sourceMaps": "inline"
+}
+

@@ -1,7 +1,7 @@
 import { configCommon } from './config.common';
 
 export const config = {
-    server: objectAssign({}, configCommon.server, {
+    server: Object.assign({}, configCommon.server, {
         port: 4201,
     }),
     serverMaps: Object.assign({}, configCommon.serverMaps, {
@@ -14,14 +14,14 @@ export const config = {
     oauth2: configCommon.oauth2,
     httpAuth: configCommon.httpAuth,
     swaggerConfig: {
-        swaggerDefinition: objectAssign({}, configCommon.swaggerConfig.swaggerDefinition, {
+        swaggerDefinition: Object.assign({}, configCommon.swaggerConfig.swaggerDefinition, {
             host: "localhost:4201",
         }),
         apis: configCommon.swaggerConfig.apis,
     },
     database: {
         account: {
-            config: objectAssign({}, configCommon.database.account.config, {
+            config: Object.assign({}, configCommon.database.account.config, {
                 "synchronize": false,
             }),
         },

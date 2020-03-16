@@ -3,7 +3,6 @@ import { createConnection, Connection } from 'typeorm';
 import { config } from "../../config";
 // import { ICustomEntitySubscriberInterface } from '../../abstract/subscriber/ICustomEntitySubscriberInterface';
 import { User } from '../../entity/account/User';
-import { OAuthClients } from '../../entity/account/OAuthClients';
 
 export class AccountConnector {
 
@@ -33,18 +32,6 @@ export class AccountConnector {
                     email: "developer@nhulanha.com",
                     phoneNumber: "962427499",
                     username: "developer@nhulanha.com",
-                }))
-            }
-
-            const oAuthClientsUser = await this._connection.manager.findOne(OAuthClients, 1);
-            if (!oAuthClientsUser) {
-                await this._connection.manager.save(new OAuthClients({
-                    id: 1,
-                    clientId: "nhulanha",
-                    clientSecret: "nhulanha123",
-                    accessTokenLifetime: 129600,
-                    refreshTokenLifetime: 31536000,
-                    grants: ["password", "refresh_token"],
                 }))
             }
         } catch (error) {

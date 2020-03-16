@@ -5,11 +5,11 @@ import { newMySQLDateISOString } from '../../utils/DateTimeUtils';
 
 import { BaseEntity } from "../../entity/account/BaseEntity";
 
-export abstract class BaseRepository<T extends BaseEntity> {
+export class BaseRepository {
 
-    protected _baseRepository: Repository<BaseEntity>;
+    _baseRepository;
 
-    protected constructor(baseRepository) {
+    constructor(baseRepository) {
         this._baseRepository = baseRepository;
     }
 
@@ -26,7 +26,7 @@ export abstract class BaseRepository<T extends BaseEntity> {
         if (Array.isArray(selectColumns) && selectColumns.length > 0) {
             query.select([
                 ...selectColumns.map(mItem => `entity.${mItem}`),
-            ] as string[]);
+            ]);
         }
 
         // conjunction
@@ -65,7 +65,7 @@ export abstract class BaseRepository<T extends BaseEntity> {
         if (Array.isArray(selectColumns) && selectColumns.length > 0) {
             query.select([
                 ...selectColumns.map(mItem => `entity.${mItem}`),
-            ] as string[]);
+            ]);
         }
 
         // conjunction
@@ -184,7 +184,7 @@ export abstract class BaseRepository<T extends BaseEntity> {
         if (Array.isArray(selectCols) && selectCols.length > 0) {
             query.select([
                 ...selectCols.map(mItem => `entity.${mItem}`),
-            ] as string[]);
+            ]);
         }
 
         // conjunction

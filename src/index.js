@@ -10,10 +10,10 @@ import logger from 'morgan';
 import { DIContainer } from './di/DIContainer';
 
 import { createConnection } from "typeorm";
-import { User } from "./entity/User";
+import { User } from "./entity/account/User";
 
 import { IndexRouter } from './routes/index';
-import { UsersRouter } from './routes/users';
+import { AccountRouter } from './routes/account';
 
 import { AccountConnector } from './repository/account/AccountConnector';
 
@@ -23,7 +23,7 @@ debug('quickstart-node-js:server');
 const main = async () => {
     const app = express();
     const diContainer = (new DIContainer()).createRegister();
-    const accountConnector = await (diContainer.get("accountConnector") as AccountConnector).createConnection(diContainer);
+    const accountConnector = await (diContainer.get("accountConnector")).createConnection(diContainer);
 
     // connection settings are in the "ormconfig.json" file
     // createConnection().then(async connection => {
@@ -52,8 +52,8 @@ const main = async () => {
     app.use(cookieParser());
     app.use(express.static(path.resolve(__dirname, "..", 'public')));
 
-    app.use('/', IndexRouter());
-    app.use('/users', UsersRouter());
+    app.use('/', IndexRouter(diContainer));
+    app.use('/users', AccountRouter(diContainer));
 
     // catch 404 and forward to error handler
     app.use(function(req, res, next) {

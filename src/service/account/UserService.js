@@ -3,6 +3,7 @@ import * as createError from "http-errors";
 import { config } from "../../config";
 
 import { User } from "../../entity/account/User";
+import { BaseRepositoryService } from "./BaseRepositoryService";
 
 export class UserService extends BaseRepositoryService {
 

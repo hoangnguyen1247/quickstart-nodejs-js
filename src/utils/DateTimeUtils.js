@@ -44,17 +44,3 @@ export function formatDatetime(date, format = "DD-MM-YYYY h:mm") {
 export function toLocal(date) {
     return date.local();
 };
-
-import * as format from "date-fns/format";
-
-export function newUTCDate(d = new Date()) {
-    return new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate(), d.getHours(), d.getMinutes(), d.getSeconds(), d.getMilliseconds()));
-}
-
-export function toLocalDateString(d = new Date(), f = "DD-MM-YYYY H:mm") {
-    return format(d, f);
-}
-
-export function newDateFromNow(number, type) {
-    return moment().add(number, type).utc().toDate();
-};

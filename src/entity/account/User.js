@@ -1,11 +1,9 @@
 import { Entity, PrimaryGeneratedColumn, Column, ManyToMany, JoinTable } from "typeorm";
-import { Category } from "./Category";
 
-@Entity()
-export class User {
+import { BaseEntity } from "./BaseEntity";
 
-    @PrimaryGeneratedColumn()
-    id = null;
+@Entity("user")
+export class User extends BaseEntity {
 
     @Column("varchar")
     fullName = "";

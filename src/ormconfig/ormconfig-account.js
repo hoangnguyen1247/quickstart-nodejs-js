@@ -12,20 +12,20 @@ const ormconfig = {
     "logging": [ "error" ],
     "migrationsRun": true,
     "entities": [
-        "src/entity/account/*.ts",
+        "src/entity/account/*.js"
     ],
     "migrations": [
-        "src/migration/account/**/*.ts"
+        "src/migration/account/**/*.js"
     ],
     "subscribers": [
-        "src/subscriber/account/*.ts"
+        "src/subscriber/account/*.js"
     ],
     "cli": {
         "entitiesDir": "src/entity/account",
         "migrationsDir": "src/migration/account",
         "subscribersDir": "src/subscriber/account"
     },
-    "useNewUrlParser": true,
-};
+    "useNewUrlParser": true
+}
 
-export default ormconfig;
+module.exports = ormconfig;

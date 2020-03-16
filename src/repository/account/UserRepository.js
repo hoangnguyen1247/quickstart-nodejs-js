@@ -32,7 +32,7 @@ export class UserRepository extends BaseRepository<User> {
             query.distinct().select([
                 ...selectColumns.map(mItem => `user.${mItem}`),
                 // ...Role.ROLE_LIST_COLUMNS.map(mItem => `role.${mItem}`),
-            ] as string[]);
+            ]);
         }
 
         countQuery.select("COUNT(DISTINCT user.id)", "count");
@@ -89,7 +89,7 @@ export class UserRepository extends BaseRepository<User> {
         // select
         query.select([
             ...User.USER_LIST_COLUMNS.map(mItem => `user.${mItem}`),
-        ] as string[]);
+        ]);
 
         // where
         query.where(`user.id = ${id}`);
@@ -114,7 +114,7 @@ export class UserRepository extends BaseRepository<User> {
             query.select([
                 ...selectColumns.map(mItem => `user.${mItem}`),
                 ...UserRole.USER_ROLE_LIST_COLUMNS.map(mItem => `role.${mItem}`),
-            ] as string[]);
+            ]);
         }
 
         // conjunction

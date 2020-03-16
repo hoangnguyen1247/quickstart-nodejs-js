@@ -12,9 +12,7 @@ export class StaffController {
     _userService;
 
     constructor(diContainer) {
-        super();
-
-        this._rbacService = diContainer.get("rbacService");
+        // this._rbacService = diContainer.get("rbacService");
         this._userService = diContainer.get("userService");
     }
 
@@ -165,11 +163,11 @@ export class StaffController {
         if (!user) {
             return next(createError(401));
         }
-        if (! await this._rbacService.hasPermission(user, OperationType.StaffView)) {
-            return next(createError(403, "", {
-                error: { errorCode: "permissionDenied" },
-            }));
-        }
+        // if (! await this._rbacService.hasPermission(user, OperationType.StaffView)) {
+        //     return next(createError(403, "", {
+        //         error: { errorCode: "permissionDenied" },
+        //     }));
+        // }
 
         const { error, data } = await this._userService.search(
             filterMap,
@@ -270,12 +268,12 @@ export class StaffController {
         const user = req.query.user;
 
         if (!fullName) {
-            return next(createError(400, ""), {
+            return next(createError(400, "", {
                 error: { errorCode: "fullNameIsRequired" },
             }));
         }
         if (!email) {
-            return next(createError(400, ""), {
+            return next(createError(400, "", {
                 error: { errorCode: "emailIsRequired" },
             }));
         }

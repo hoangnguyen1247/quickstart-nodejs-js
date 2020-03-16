@@ -1,5 +1,5 @@
-import * as packageJson from "../../package.json";
-import * as ormconfigAccount from "../ormconfig/ormconfig-account";
+import packageJson from "../../package.json";
+import ormconfigAccount from "../ormconfig/ormconfig-account";
 
 export const configCommon = {
     version: {

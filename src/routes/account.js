@@ -2,7 +2,7 @@ import express from 'express';
 
 import { StaffController } from "../controller/v1/account/StaffController";
 
-export function UsersRouter(diContainer, oauth2Server) {
+export function AccountRouter(diContainer, oauth2Server) {
 
     const router = express.Router();
     const staffController = new StaffController(diContainer);

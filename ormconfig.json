@@ -3,9 +3,9 @@
   "type": "mysql",
   "host": "localhost",
   "port": 3306,
-  "username": "express",
-  "password": "express123",
-  "database": "express",
+  "username": "nhulanha",
+  "password": "nhulanha123",
+  "database": "nhulanha-account",
   "synchronize": false,
   "entities": [
     "src/entity/*.js"
@@ -22,4 +22,3 @@
     "subscribersDir": "src/subscriber"
   }
 }
-

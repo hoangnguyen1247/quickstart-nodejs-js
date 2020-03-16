@@ -25,10 +25,12 @@
   },
   "devDependencies": {
     "@babel/cli": "^7.8.4",
+    "flow-bin": "^0.120.1",
     "nodemon": "^2.0.2"
   },
   "scripts": {
-    "start": "cross-env NODE_ENV=local nodemon --watch 'src/**/*.js' --ignore 'src/**/*.spect.js' --exec node --inspect=127.0.0.1:9229 -r @babel/register src/index.js",
-    "start:debug": "node inspect -r @babel/register"
+    "start": "cross-env NODE_ENV=local nodemon --watch 'src/**/*.js' --ignore 'src/**/*.spect.js' --exec node --inspect=127.0.0.1:9229 -r @babel/register index.js",
+    "start:debug": "node inspect -r @babel/register",
+    "flow": "flow"
   }
 }

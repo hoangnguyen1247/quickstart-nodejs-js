@@ -1,5 +1,5 @@
-import {Entity, PrimaryGeneratedColumn, Column, ManyToMany, JoinTable} from "typeorm";
-import {Category} from "./Category";
+import { Entity, PrimaryGeneratedColumn, Column, ManyToMany, JoinTable } from "typeorm";
+import { Category } from "./Category";
 
 @Entity()
 export class User {
@@ -9,6 +9,4 @@ export class User {
 
     @Column("varchar")
     fullName = "";
-
-
 }

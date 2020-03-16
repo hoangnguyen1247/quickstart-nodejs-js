@@ -1,13 +1,21 @@
 import express from 'express';
 
+import { StaffController } from "../controller/v1/account/StaffController";
+
 export function UsersRouter(diContainer, oauth2Server) {
 
     const router = express.Router();
+    const staffController = new StaffController(diContainer);
 
-    /* GET users listing. */
-    router.get('/', function(req, res, next) {
-        res.send('respond with a resource');
-    });
+    router.route("/staffs")
+        .get(staffController.findMany)
+        .post(staffController.insert);
+    router.route("/staffs/search")
+        .get(staffController.search);
+    router.route("/staffs/:id")
+        .get(staffController.findOneById)
+        .put(staffController.update)
+        .delete(staffController.delete);
 
     return router;
 }

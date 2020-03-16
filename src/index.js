@@ -7,16 +7,23 @@ import path from 'path';
 import cookieParser from 'cookie-parser';
 import logger from 'morgan';
 
+import { DIContainer } from './di/DIContainer';
+
 import { createConnection } from "typeorm";
 import { User } from "./entity/User";
 
 import { IndexRouter } from './routes/index';
 import { UsersRouter } from './routes/users';
 
+import { AccountConnector } from './repository/account/AccountConnector';
+
+
 debug('quickstart-node-js:server');
 
 const main = async () => {
     const app = express();
+    const diContainer = (new DIContainer()).createRegister();
+    const accountConnector = await (diContainer.get("accountConnector") as AccountConnector).createConnection(diContainer);
 
     // connection settings are in the "ormconfig.json" file
     // createConnection().then(async connection => {

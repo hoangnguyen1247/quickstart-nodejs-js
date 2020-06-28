@@ -8,7 +8,7 @@ export function newDateISOString() {
     return (new Date()).toISOString();
 };
 
-export function newMySQLDateISOString(date?) {
+export function newMySQLDateISOString(date) {
     if (date) {
         return moment.utc(date).format("YYYY-MM-DD HH:mm:ss.SSS[Z]");
     }

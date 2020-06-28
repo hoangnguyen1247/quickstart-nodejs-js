@@ -9,38 +9,34 @@ import logger from 'morgan';
 
 import { DIContainer } from './di/DIContainer';
 
-import { createConnection } from "typeorm";
-import { User } from "./entity/account/User";
-
 import { IndexRouter } from './routes/index';
 import { AccountRouter } from './routes/account';
 
-import { AccountConnector } from './repository/account/AccountConnector';
-
-
 debug('quickstart-node-js:server');
 
-const main = async () => {
+/**
+ * Normalize a port into a number, string, or false.
+ */
+function normalizePort(val) {
+    var port = parseInt(val, 10);
+
+    if (isNaN(port)) {
+        // named pipe
+        return val;
+    }
+
+    if (port >= 0) {
+        // port number
+        return port;
+    }
+
+    return false;
+}
+
+export const createServer = async () => {
     const app = express();
     const diContainer = (new DIContainer()).createRegister();
-    const accountConnector = await (diContainer.get("accountConnector")).createConnection(diContainer);
-
-    // connection settings are in the "ormconfig.json" file
-    // createConnection().then(async connection => {
-
-    //     const post = new User();
-    //     post.title = "Control flow based type analysis";
-
-    //     const user = await connection
-    //         .getRepository(User)
-    // 	.createQueryBuilder()
-    //         .getOne();
-
-    //     debugger;
-
-    //     console.log(user);
-
-    // }).catch(error => console.log("Error: ", error));
+    // const accountConnector = await (diContainer.get("accountConnector")).createConnection(diContainer);
 
     // view engine setup
     app.set('views', path.join(__dirname, 'views'));
@@ -75,7 +71,7 @@ const main = async () => {
      * Get port from environment and store in Express.
      */
 
-    var port = normalizePort(process.env.PORT || '3000');
+    var port = normalizePort(process.env.PORT || '4201');
     app.set('port', port);
 
     /**
@@ -90,6 +86,7 @@ const main = async () => {
 
     server.listen(port);
 
+    
     /**
      * Event listener for HTTP server "error" event.
      */
@@ -123,25 +120,6 @@ const main = async () => {
         var bind = typeof addr === 'string' ? 'pipe ' + addr : 'port ' + addr.port;
         debug('Listening on ' + bind);
     });
+
+    return server;
 }
-
-/**
- * Normalize a port into a number, string, or false.
- */
-function normalizePort(val) {
-    var port = parseInt(val, 10);
-
-    if (isNaN(port)) {
-        // named pipe
-        return val;
-    }
-
-    if (port >= 0) {
-        // port number
-        return port;
-    }
-
-    return false;
-}
-
-export default main;

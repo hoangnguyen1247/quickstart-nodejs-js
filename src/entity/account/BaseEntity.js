@@ -5,22 +5,22 @@ import { newMySQLDateISOString } from "../../utils/DateTimeUtils";
 export class BaseEntity {
 
     @PrimaryGeneratedColumn({ name: "id", type: "bigint" })
-    id: number;
+    id;
 
     @Column({ name: "createdDate", type: "varchar", length: 32, default: "" })
-    createdDate: string;
+    createdDate;
 
     @Column({ name: "createdBy", type: "bigint", nullable: true })
-    createdBy: number;
+    createdBy;
 
     @Column({ name: "lastModifiedDate", type: "varchar", length: 32, default: "" })
-    lastModifiedDate: string;
+    lastModifiedDate;
 
     @Column({ name: "lastModifiedAction", type: "varchar", length: 256, default: "" })
-    lastModifiedAction: string;
+    lastModifiedAction;
 
     @Column({ name: "lastModifiedBy", type: "bigint", nullable: true })
-    lastModifiedBy: number;
+    lastModifiedBy;
 
     constructor(entityDto) {
         if (typeof entityDto === "object") {

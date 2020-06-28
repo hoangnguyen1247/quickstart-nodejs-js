@@ -1,5 +1,5 @@
+import createError from "http-errors";
 import { NextFunction, Request, Response } from "express";
-import * as createError from "http-errors";
 // import * as i18n from "i18n";
 
 // import { BaseController } from "../BaseController";
@@ -13,13 +13,13 @@ export class StaffController {
 
     constructor(diContainer) {
         // this._rbacService = diContainer.get("rbacService");
-        this._userService = diContainer.get("userService");
+        // this._userService = diContainer.get("userService");
     }
 
     /**
      * Find many
      */
-    findMany = async (req: Request, res: Response, next: NextFunction) => {
+    findMany = async (req, res, next) => {
         const page = req.query.page;
         const size = req.query.size;
 
@@ -137,7 +137,7 @@ export class StaffController {
      *       503:
      *         description: Authorized fail
      */
-    search = async (req: Request, res: Response, next: NextFunction) => {
+    search = async (req, res, next) => {
         const searchKey = req.query.searchKey;
         const searchFields = req.query.searchFields;
         const page = req.query.page;
@@ -203,7 +203,7 @@ export class StaffController {
      *       200:
      *         description: Ok
      */
-    findOneById = async (req: Request, res: Response, next: NextFunction) => {
+    findOneById = async (req, res, next) => {
         const staffId = req.params.id || null;
 
         if (!staffId) {
@@ -250,7 +250,7 @@ export class StaffController {
      *       200:
      *         description: Ok
      */
-    insert = async (req: Request, res: Response, next: NextFunction) => {
+    insert = async (req, res, next) => {
         const fullName = req.body.fullName || "";
         const phoneNumber = req.body.phoneNumber || "";
         const email = req.body.email || "";
@@ -322,7 +322,7 @@ export class StaffController {
      *       200:
      *         description: Ok
      */
-    update = async (req: Request, res: Response, next: NextFunction) => {
+    update = async (req, res, next) => {
         const staffId = req.body.id || "";
         const fullName = req.body.fullName || "";
         const phoneNumber = req.body.phoneNumber || "";
@@ -385,7 +385,7 @@ export class StaffController {
      *       200:
      *         description: Ok
      */
-    delete = async (req: Request, res: Response, next: NextFunction) => {
+    delete = async (req, res, next) => {
         const userId = req.params.id || 0;
 
         const user = req.query.user;

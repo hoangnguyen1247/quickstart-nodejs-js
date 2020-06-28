@@ -11,6 +11,7 @@
         "@babel/preset-env": "^7.8.7",
         "@babel/preset-flow": "^7.8.3",
         "@babel/register": "^7.8.6",
+        "babel-plugin-module-resolver": "^4.0.0",
         "cookie-parser": "~1.4.4",
         "cross-env": "^7.0.2",
         "debug": "~2.6.9",
@@ -20,23 +21,17 @@
         "ignore-styles": "^5.0.1",
         "moment": "^2.24.0",
         "morgan": "~1.9.1",
-        "mysql": "^2.18.1",
-        "node-dependency-injection": "^2.6.2",
-        "ts-node": "^8.6.2",
-        "typeorm": "^0.2.24",
-        "typescript": "^3.8.3"
+        "node-dependency-injection": "^2.6.2"
     },
     "devDependencies": {
         "@babel/cli": "^7.8.4",
         "@types/node": "^13.9.1",
-        "flow-bin": "^0.120.1",
         "nodemon": "^2.0.2"
     },
     "scripts": {
-        "start": "cross-env NODE_ENV=local nodemon --watch 'src/**/*.js' --ignore 'src/**/*.spect.js' --exec node --inspect=127.0.0.1:9229 -r @babel/register index.js",
+        "start": "cross-env NODE_PATH=. NODE_ENV=local nodemon --watch 'src/**/*.js' --ignore 'src/**/*.spect.js' --exec node --inspect=127.0.0.1:9229 -r @babel/register src/main.js",
         "start:debug": "node inspect -r @babel/register",
         "compile": "babel src --out-dir dist",
-        "flow": "flow",
         "compile:migration": "tsc src/migration/**/*",
         "typeorm:account": "node -r @babel/register ./node_modules/typeorm/cli.js --config ./src/ormconfig/ormconfig-account.js -c account",
         "ts-node": "./node_modules/.bin/ts-node"

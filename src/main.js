@@ -1,9 +1,21 @@
+import { DIContainer } from "src/di/DIContainer";
 import { createServer } from "src/server";
 
-createServer()
-    .then(res => {
+async function initAccountDb() {
+
+}
+
+async function main() {
+    try {
+        const diContainer = (new DIContainer()).createRegister();
+
+        await initAccountDb();
+
+        await createServer(diContainer);
         console.log("Server has started");
-    })
-    .catch(error => {
+    } catch(error) {
         console.log("Start server error: " + error);
-    });
+    }
+}
+
+main();

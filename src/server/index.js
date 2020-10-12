@@ -7,9 +7,7 @@ import path from 'path';
 import cookieParser from 'cookie-parser';
 import logger from 'morgan';
 
-import { DIContainer } from '../di/DIContainer';
-
-import { IndexRouter } from '../controller/home/index';
+import { HomeRouter } from '../controller/home';
 import { AccountRouter } from '../controller/v1/account';
 
 debug('quickstart-node-js:server');
@@ -33,9 +31,8 @@ function normalizePort(val) {
     return false;
 }
 
-export const createServer = async () => {
+export const createServer = async (diContainer) => {
     const app = express();
-    const diContainer = (new DIContainer()).createRegister();
     // const accountConnector = await (diContainer.get("accountConnector")).createConnection(diContainer);
 
     // view engine setup
@@ -48,7 +45,7 @@ export const createServer = async () => {
     app.use(cookieParser());
     app.use(express.static(path.resolve(__dirname, "..", 'public')));
 
-    app.use('/', IndexRouter(diContainer));
+    app.use('/', HomeRouter(diContainer));
     app.use('/users', AccountRouter(diContainer));
 
     // catch 404 and forward to error handler

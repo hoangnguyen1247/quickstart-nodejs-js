@@ -1,6 +1,6 @@
 import express from 'express';
 
-export function IndexRouter(diContainer, oauth2Server) {
+export function HomeRouter(diContainer, oauth2Server) {
 
     const router = express.Router();
 

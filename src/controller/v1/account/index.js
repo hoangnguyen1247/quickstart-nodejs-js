@@ -1,6 +1,6 @@
 import express from 'express';
 
-import { StaffController } from "../controller/v1/account/StaffController";
+import { StaffController } from "./StaffController";
 
 export function AccountRouter(diContainer, oauth2Server) {
 

@@ -7,10 +7,10 @@ import path from 'path';
 import cookieParser from 'cookie-parser';
 import logger from 'morgan';
 
-import { DIContainer } from './di/DIContainer';
+import { DIContainer } from '../di/DIContainer';
 
-import { IndexRouter } from './routes/index';
-import { AccountRouter } from './routes/account';
+import { IndexRouter } from '../controller/home/index';
+import { AccountRouter } from '../controller/v1/account';
 
 debug('quickstart-node-js:server');
 
@@ -91,14 +91,14 @@ export const createServer = async () => {
      * Event listener for HTTP server "error" event.
      */
     server.on('error', function(error) {
-        if (error.syscall !== 'listen') {
+        if (error["syscall"] !== 'listen') {
             throw error;
         }
     
         var bind = typeof port === 'string' ? 'Pipe ' + port : 'Port ' + port;
     
         // handle specific listen errors with friendly messages
-        switch (error.code) {
+        switch (error["code"]) {
             case 'EACCES':
                 console.error(bind + ' requires elevated privileges');
                 process.exit(1);

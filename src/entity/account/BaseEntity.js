@@ -1,4 +1,4 @@
-import { newMySQLDateISOString } from "../../utils/DateTimeUtils";
+import { newMySQLDateISOString } from "../../utils/datetime/DateTimeUtils";
 
 export class BaseEntity {
 

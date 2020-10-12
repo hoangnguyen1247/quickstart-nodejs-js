@@ -13,7 +13,6 @@
     ],
     "plugins": [
 	    ["@babel/plugin-proposal-decorators", { "legacy" : true }],
-        "@babel/plugin-transform-arrow-functions",
         ["@babel/plugin-proposal-class-properties", { "loose": true }],
         ["@babel/plugin-transform-runtime", { "regenerator": true }],
         ["module-resolver", {
@@ -27,7 +26,7 @@
             "alias": {
                 "src": ["./src/"],
                 "server": ["./server/"],
-                "test": ["./test/"],
+                "test": ["./test/"]
             }
         }]
     ],

@@ -1,0 +1,17 @@
+version: '3.4'
+
+services:
+    quickstart_lib_ts:
+        image: quickstart_lib_ts
+        build:
+            context: .
+            dockerfile: ./.docker/Dockerfile
+        environment:
+            NODE_PATH: .
+            NODE_ENV: development
+        ports:
+            - 3000:8080
+            - 9229:9229
+        volumes:
+            - ./:/usr/src/app
+        # command: node --inspect=0.0.0.0:9229 -r ts-node/register ./main.ts

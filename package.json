@@ -34,6 +34,8 @@
     "scripts": {
         "start": "cross-env NODE_PATH=. NODE_ENV=local nodemon --watch 'src/**/*.js' --ignore 'src/**/*.spect.js' --exec node --inspect=127.0.0.1:9229 -r @babel/register src/main.js",
         "start:debug": "node inspect -r @babel/register",
+        "start:prd": "cross-env NODE_PATH=. NODE_ENV=production node inspect -r @babel/register src/main.js",
+        "start:deploy": "NODE_PATH=. node inspect -r @babel/register src/main.js",
         "typecheck": "cross-env NODE_PATH=. tsc --checkJs --noEmit",
         "build": "babel src --out-dir lib --source-maps false",
         "compile:migration": "tsc src/migration/**/*",

@@ -1,5 +1,4 @@
 import createError from "http-errors";
-import { NextFunction, Request, Response } from "express";
 // import * as i18n from "i18n";
 
 // import { BaseController } from "../BaseController";
@@ -262,7 +261,7 @@ export class StaffController {
         const contractType = req.body.contractType || "";
         const role = req.body.role || "";
         const note = req.body.note || "";
-        const username = req.body.username || "";
+        // const username = req.body.username || "";
         const password = req.body.password || "";
 
         const user = req.query.user;
@@ -388,7 +387,7 @@ export class StaffController {
     delete = async (req, res, next) => {
         const userId = req.params.id || 0;
 
-        const user = req.query.user;
+        // const user = req.query.user;
 
         if (!userId) {
             return next(createError(400));

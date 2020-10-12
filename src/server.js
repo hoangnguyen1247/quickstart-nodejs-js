@@ -90,7 +90,7 @@ export const createServer = async () => {
     /**
      * Event listener for HTTP server "error" event.
      */
-    server.on('error', function onError(error) {
+    server.on('error', function(error) {
         if (error.syscall !== 'listen') {
             throw error;
         }
@@ -100,15 +100,15 @@ export const createServer = async () => {
         // handle specific listen errors with friendly messages
         switch (error.code) {
             case 'EACCES':
-            console.error(bind + ' requires elevated privileges');
-            process.exit(1);
-            break;
+                console.error(bind + ' requires elevated privileges');
+                process.exit(1);
+                break;
             case 'EADDRINUSE':
-            console.error(bind + ' is already in use');
-            process.exit(1);
-            break;
+                console.error(bind + ' is already in use');
+                process.exit(1);
+                break;
             default:
-            throw error;
+                throw error;
         }
     });
 

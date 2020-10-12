@@ -1,4 +1,4 @@
-import { ContainerBuilder, Reference } from 'node-dependency-injection';
+import { ContainerBuilder } from 'node-dependency-injection';
 
 export class DIContainer {
 

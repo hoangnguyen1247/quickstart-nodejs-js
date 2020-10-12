@@ -1,7 +1,7 @@
-import {config as configLocal} from "./config/config.local";
-import {config as configDevelopment} from "./config/config.local";
-import {config as configStaging} from "./config/config.local";
-import {config as configProduction} from "./config/config.local";
+import {config as configLocal} from "./config.local";
+import {config as configDevelopment} from "./config.local";
+import {config as configStaging} from "./config.local";
+import {config as configProduction} from "./config.local";
 
 let selectedProfile = configLocal;
 switch (process.env.NODE_ENV) {

@@ -1,5 +1,3 @@
-import { PrimaryGeneratedColumn, Column } from "typeorm";
-
 import { newMySQLDateISOString } from "../../utils/DateTimeUtils";
 
 export class BaseEntity {

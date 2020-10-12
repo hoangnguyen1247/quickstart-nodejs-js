@@ -26,11 +26,13 @@
     "devDependencies": {
         "@babel/cli": "^7.8.4",
         "@types/node": "^13.9.1",
-        "nodemon": "^2.0.2"
+        "nodemon": "^2.0.2",
+        "typescript": "^4.0.3"
     },
     "scripts": {
         "start": "cross-env NODE_PATH=. NODE_ENV=local nodemon --watch 'src/**/*.js' --ignore 'src/**/*.spect.js' --exec node --inspect=127.0.0.1:9229 -r @babel/register src/main.js",
         "start:debug": "node inspect -r @babel/register",
+        "typecheck": "cross-env NODE_PATH=. tsc --checkJs --noEmit",
         "compile": "babel src --out-dir dist",
         "compile:migration": "tsc src/migration/**/*",
         "typeorm:account": "node -r @babel/register ./node_modules/typeorm/cli.js --config ./src/ormconfig/ormconfig-account.js -c account",

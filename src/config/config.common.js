@@ -1,5 +1,4 @@
 import packageJson from "../../package.json";
-import ormconfigAccount from "../ormconfig/ormconfig-account";
 
 export const configCommon = {
     version: {
@@ -58,7 +57,9 @@ export const configCommon = {
     },
     database: {
         account: {
-            config: ormconfigAccount,
+            config: {
+                
+            },
         },
     }
 };

@@ -57,9 +57,8 @@ export const configCommon = {
     },
     database: {
         account: {
-            config: {
-                
-            },
+            uri: "mongodb://root:rootpwd123@mongo1:27011,mongo2:27012,mongo3:27013",
+            databaseName: "account",
         },
     }
 };

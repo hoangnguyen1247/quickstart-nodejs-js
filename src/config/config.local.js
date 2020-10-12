@@ -20,10 +20,7 @@ export const config = {
         apis: configCommon.swaggerConfig.apis,
     },
     database: {
-        account: {
-            config: Object.assign({}, configCommon.database.account.config, {
-                "synchronize": false,
-            }),
-        },
+        account: Object.assign({}, configCommon.database.account, {
+        }),
     }
 }

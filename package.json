@@ -11,6 +11,7 @@
         "@babel/preset-env": "^7.8.7",
         "@babel/preset-flow": "^7.8.3",
         "@babel/register": "^7.8.6",
+        "@babel/runtime": "^7.11.2",
         "babel-plugin-module-resolver": "^4.0.0",
         "cookie-parser": "~1.4.4",
         "cross-env": "^7.0.2",
@@ -34,7 +35,7 @@
         "start": "cross-env NODE_PATH=. NODE_ENV=local nodemon --watch 'src/**/*.js' --ignore 'src/**/*.spect.js' --exec node --inspect=127.0.0.1:9229 -r @babel/register src/main.js",
         "start:debug": "node inspect -r @babel/register",
         "typecheck": "cross-env NODE_PATH=. tsc --checkJs --noEmit",
-        "compile": "babel src --out-dir dist",
+        "build": "babel src --out-dir lib --source-maps false",
         "compile:migration": "tsc src/migration/**/*",
         "typeorm:account": "node -r @babel/register ./node_modules/typeorm/cli.js --config ./src/ormconfig/ormconfig-account.js -c account",
         "ts-node": "./node_modules/.bin/ts-node"
